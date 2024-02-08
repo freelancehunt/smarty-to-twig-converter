@@ -12,7 +12,7 @@ namespace toTwig\Converter;
 class AssetsConverter extends IncludeConverter
 {
     protected string $name = 'assets';
-    protected string $description = 'Convert smarty asset to twig asses';
+    protected string $description = 'Convert smarty asset to twig assets';
 
 
     public function convert(string $content): string {
