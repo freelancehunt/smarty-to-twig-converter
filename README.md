@@ -1,4 +1,16 @@
-Converting Smarty templates to Twig
+Freelancehunt usage
+===================================
+Build Docker image and install Composer dependencies once:
+```
+docker build -t fh_twig_converter .
+docker run -it --rm --name twigConverter -v $PWD:/app fh_twig_converter composer install
+```
+Then run a converter against required Smarty template:
+```
+docker run -u $(id -u):$(id -g) -it --rm --name twigConverter -v $PWD:/app -v ~/www/freelancehunt.com/smarty_templates:/app/templates fh_twig_converter php toTwig convert --config-path=config_file.php --path=/app/templates/tailwind_templates/base.tpl
+```
+
+Converting tool located atConverting Smarty templates to Twig
 ===================================
 
 Converting tool located at
