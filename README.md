@@ -1,14 +1,17 @@
 Freelancehunt usage
 ===================================
-Build Docker image and install Composer dependencies once:
+For the 1st usage build a Docker image and install Composer dependencies:
 ```
 docker build -t fh_twig_converter .
 docker run -it --rm --name twigConverter -v $PWD:/app fh_twig_converter composer install
 ```
-Then run a converter against required Smarty template:
+Then run a converter against required Smarty template or directory:
 ```
-docker run -u $(id -u):$(id -g) -it --rm --name twigConverter -v $PWD:/app -v ~/www/freelancehunt.com/smarty_templates:/app/templates fh_twig_converter php toTwig convert --config-path=config_file.php --path=/app/templates/tailwind_templates/base.tpl
+./convert.sh ~/freelancehunt.com/smarty_templates/tailwind_templates/base.tpl
+./convert.sh ~/freelancehunt.com/smarty_templates/tailwind_templates
 ```
+
+To use a debugger you have to configure server in PHPStorm(Settings -> PHP -> Servers) with name "smarty2twig" and map the repository folder to `/app`.
 
 Converting tool located atConverting Smarty templates to Twig
 ===================================

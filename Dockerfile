@@ -10,4 +10,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && apt-get clean
 
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 WORKDIR /app
