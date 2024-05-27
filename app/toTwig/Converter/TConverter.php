@@ -22,7 +22,7 @@ class TConverter extends ConverterAbstract {
      */
     public function convert(string $content): string {
         $content = str_replace('[{t}]', '{{ \'', $content);
-        $content = str_replace('[{/t}]', '\'|trans }}', $content);
+        $content = str_replace('[{/t}]', '\'|t }}', $content);
 
         return $content;
     }

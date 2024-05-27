@@ -1,4 +1,19 @@
-Converting Smarty templates to Twig
+Freelancehunt usage
+===================================
+For the 1st usage build a Docker image and install Composer dependencies:
+```
+docker build -t fh_twig_converter .
+docker run -it --rm --name twigConverter -v $PWD:/app fh_twig_converter composer install
+```
+Then run a converter against required Smarty template or directory:
+```
+./convert.sh ~/freelancehunt.com/smarty_templates/tailwind_templates/base.tpl
+./convert.sh ~/freelancehunt.com/smarty_templates/tailwind_templates
+```
+
+To use a debugger you have to configure server in PHPStorm(Settings -> PHP -> Servers) with name "smarty2twig" and map the repository folder to `/app`.
+
+Converting tool located atConverting Smarty templates to Twig
 ===================================
 
 Converting tool located at
